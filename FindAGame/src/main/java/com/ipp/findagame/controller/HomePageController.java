@@ -1,5 +1,5 @@
 package com.ipp.findagame.controller;
 
-public class HomePageController {
+public class HomePageController{
 
 }
