@@ -1,10 +1,6 @@
 package com.ipp.findagame.controller;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.apache.log4j.Logger;
-import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +14,7 @@ import com.ipp.findagame.model.Player;
 public class HomePageController{
 	
 	static final Logger logger = Logger.getLogger(HomePageController.class);
-	private long i =0 ;
+	private long i = 0;
 	/**
 	 * web page response
 	 * @param model
