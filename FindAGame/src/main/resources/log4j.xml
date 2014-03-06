@@ -4,12 +4,30 @@
                      xmlns:log4j='http://jakarta.apache.org/log4j/'>
                      
 	<appender name="consoleAppender" class="org.apache.log4j.ConsoleAppender">
-      <layout class="org.apache.log4j.PatternLayout">
-         <param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss} %5p %c{1} - %m%n"/>
-      </layout>
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss} %5p %c{1} - %m%n"/>
+		</layout>
    </appender>
+   
+  	<!-- file appender -->
+  <appender name="fileAppender" class="org.apache.log4j.RollingFileAppender">
+		<param name="file" value="logs/finagameserver.log" /> 
+		<param name="MaxBackupIndex" value="500" />
+		<param name="MaxFileSize" value="5MB" />
+		<layout class="org.apache.log4j.PatternLayout">
+		     <param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss} %5p %c{1} - %m%n"/>
+		</layout>
+  </appender> 
+  
+   <!-- persist after only 500 log event -->
+   <appender name="async" class="org.apache.log4j.AsyncAppender">
+        <param name="BufferSize" value="500"/>
+        <appender-ref ref="consoleAppender"/>
+        <appender-ref ref="fileAppender"/>
+   </appender>
+    
    <root>
-      <level value="INFO"/>
-      <appender-ref ref="consoleAppender"/>
+      	<level value="INFO"/>
+		<appender-ref ref="async"/>
    </root>
 </log4j:configuration>
