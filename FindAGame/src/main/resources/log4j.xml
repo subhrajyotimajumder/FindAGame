@@ -18,7 +18,7 @@
 		     <param name="ConversionPattern" value="%d{dd MMM yyyy HH:mm:ss} %5p %c{1} - %m%n"/>
 		</layout>
   </appender> 
-  
+   
    <!-- persist after only 500 log event -->
    <appender name="async" class="org.apache.log4j.AsyncAppender">
         <param name="BufferSize" value="500"/>
