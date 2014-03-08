@@ -22,9 +22,9 @@ public class HomePageController{
 	 */
 	@RequestMapping(value="/welcome", method = RequestMethod.GET)
 	public String welcome(ModelMap model) {
-		logger.debug("welcome start");
+		logger.info("welcome start");
 		model.addAttribute("message", "whatsup!");
-		logger.debug("welcome end");
+		logger.info("welcome end");
 		return "index";
 	}
 	
