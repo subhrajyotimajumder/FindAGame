@@ -14,7 +14,9 @@ import org.testng.annotations.BeforeClass;
 
 @Test
 @WebAppConfiguration
-@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml"})
+@ContextConfiguration(locations = {"file:src/main/webapp/WEB-INF/mvc-dispatcher-servlet.xml",
+									"file:src/main/webapp/WEB-INF/applicationContext.xml"
+})
 public class HomePageControllerTest extends AbstractTestNGSpringContextTests{
 	
 	@Autowired 
