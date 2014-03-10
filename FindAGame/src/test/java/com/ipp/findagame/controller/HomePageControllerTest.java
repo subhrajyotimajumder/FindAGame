@@ -30,13 +30,16 @@ public class HomePageControllerTest extends AbstractTestNGSpringContextTests{
 
 	@Test
 	public void getDummyPlayer() throws Exception {
-		
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/welcome","")).
+		andExpect(MockMvcResultMatchers.status().isOk())
+		.andExpect(MockMvcResultMatchers.request().attribute("message", "whatsup!"));
 	}
 
 	@Test
 	public void welcome() throws Exception {
-		this.mockMvc.perform(MockMvcRequestBuilders.get("/welcome","")).
-		andExpect(MockMvcResultMatchers.status().isOk());
-//		throw new RuntimeException("Test not implemented");
+		this.mockMvc.perform(MockMvcRequestBuilders.get("/player","")).
+		andExpect(MockMvcResultMatchers.status().isOk())
+		.andExpect(MockMvcResultMatchers.
+				content().contentTypeCompatibleWith("application/json"));
 	}
 }
